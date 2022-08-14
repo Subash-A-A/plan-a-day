@@ -21,6 +21,7 @@ public class Level : MonoBehaviour
             for(int j = 0; j < RoundList[i].Question.Length; j++)
             {
                 GameObject question = Instantiate(manager.GetQuestionPrefab(), Panel);
+                
                 question.name = "Question: " + (j + 1);
                 
                 if(question.TryGetComponent<Text>(out Text questText))
