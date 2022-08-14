@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int noOfLevels = 10;
+    public int currentLevel = 1;
+
+    [SerializeField] GameObject QuestionPrefab;
+
+    private void Start()
     {
-        
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if((i + 1) == currentLevel)
+            {   
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject GetQuestionPrefab()
     {
-        
+        return QuestionPrefab;
     }
 }
