@@ -81,7 +81,7 @@ MonoBehaviour:
     m_Value: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.3
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -89,8 +89,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0.740566, b: 0.740566, a: 1}
   highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
