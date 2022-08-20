@@ -18,11 +18,11 @@ public class RightPanelAppear : MonoBehaviour
     {
         if (levelManager.activeSelf)
         {
-            panel.color = Color.Lerp(panel.color, colorFullAlpha, 10 * Time.deltaTime);
+            panel.color = Color.Lerp(panel.color, colorFullAlpha, 10 * Time.unscaledDeltaTime);
         }
         else
         {
-            panel.color = Color.Lerp(panel.color, colorTransparent, 10 * Time.deltaTime);
+            panel.color = Color.Lerp(panel.color, colorTransparent, 10 * Time.unscaledDeltaTime);
         }
     }
 }

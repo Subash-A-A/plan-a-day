@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2360,9 +2360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da44b8b7aee14e4b97d1c5c976b6adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSecond: 10
-  startMinute: 0
-  currentMinute: 0
+  startSecond: 0
+  startMinute: 2
   countDownSeconds: {fileID: 1732537638}
   Expired: {fileID: 1497557617}
 --- !u!65 &1347170016
@@ -2452,7 +2451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.48584908, b: 0.48584908, a: 0}
+  m_Color: {r: 1, g: 0.48584908, b: 0.48584908, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
