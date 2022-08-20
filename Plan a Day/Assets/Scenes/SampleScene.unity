@@ -2958,7 +2958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2967,11 +2967,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 315b99c8adc89214b8d1b4e6fa364059, type: 3}
-    m_FontSize: 23
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 57
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3151,10 +3151,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3692775180096654173, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Home
+      objectReference: {fileID: 0}
     - target: {fileID: 3692775180650509972, guid: 9acc05564559a464ea11875364240419, type: 3}
       propertyPath: buildingName
       value: 
       objectReference: {fileID: 1173383142}
+    - target: {fileID: 3692775180883473628, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Medical Shop
+      objectReference: {fileID: 0}
     - target: {fileID: 3692775181152254194, guid: 9acc05564559a464ea11875364240419, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3215,6 +3223,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -1.92
       objectReference: {fileID: 0}
+    - target: {fileID: 3692775181560874763, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Veggie Stall
+      objectReference: {fileID: 0}
     - target: {fileID: 3692775181560906158, guid: 9acc05564559a464ea11875364240419, type: 3}
       propertyPath: m_Size.y
       value: 1.5
@@ -3239,6 +3251,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3692775181916433995, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Veggie Stall
+      objectReference: {fileID: 0}
     - target: {fileID: 3692775181978734289, guid: 9acc05564559a464ea11875364240419, type: 3}
       propertyPath: m_Size.y
       value: 1.5
@@ -3246,6 +3262,18 @@ PrefabInstance:
     - target: {fileID: 3692775181978734289, guid: 9acc05564559a464ea11875364240419, type: 3}
       propertyPath: m_Center.y
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692775181978765390, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Saloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163830130733663304, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Bakery
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566770516952439881, guid: 9acc05564559a464ea11875364240419, type: 3}
+      propertyPath: m_Name
+      value: Hospital
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3692775180650509972, guid: 9acc05564559a464ea11875364240419, type: 3}
