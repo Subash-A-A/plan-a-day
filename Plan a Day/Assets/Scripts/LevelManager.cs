@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public int noOfLevels = 10;
     public int currentLevel = 1;
+    public int levelsUnlocked = 5;
 
     [SerializeField] GameObject QuestionPrefab;
 
