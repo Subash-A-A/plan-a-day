@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f040a618eec32542a276e1dfc1a72b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayAtHeight: 10
+  displayAtHeight: 15
 --- !u!1 &1830037979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,7 +3379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noOfLevels: 14
   currentLevel: 1
-  levelsUnlocked: 5
+  levelsUnlocked: 2
   QuestionPrefab: {fileID: 3405665903486235814, guid: 389696c792b65b543a255c3b0244908c, type: 3}
 --- !u!1 &2012587094
 GameObject:

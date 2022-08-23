@@ -12,6 +12,10 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(true);
+    }
+    private void OnEnable()
+    {
         for(int i = 0; i < transform.childCount; i++)
         {
             if((i + 1) == currentLevel)
