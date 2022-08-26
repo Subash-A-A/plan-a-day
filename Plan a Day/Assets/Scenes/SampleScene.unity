@@ -3378,7 +3378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noOfLevels: 14
-  currentLevel: 1
+  currentLevel: 2
   levelsUnlocked: 2
   QuestionPrefab: {fileID: 3405665903486235814, guid: 389696c792b65b543a255c3b0244908c, type: 3}
 --- !u!1 &2012587094
