@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007237052374",
+    "project_id": "plan-a-day-87f3a",
+    "storage_bucket": "plan-a-day-87f3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007237052374:android:dfc8cb8c429a0678a65677",
+        "android_client_info": {
+          "package_name": "com.Company.PlanADay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007237052374-d1gimkahgkgqqvh1r6plnhha7uj40sot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRBbD4KEPrFo9Nc9FJf0LmWClK-ixsf3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007237052374-d1gimkahgkgqqvh1r6plnhha7uj40sot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
