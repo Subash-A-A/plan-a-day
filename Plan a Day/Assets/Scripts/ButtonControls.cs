@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class ButtonControls : MonoBehaviour
 {
-    [SerializeField] GameObject levelManager;
+    [SerializeField] GameObject leftPanel;
     [SerializeField] GameObject levelSelector;
 
     public void ShowStreetMap()
     {
-        levelManager.SetActive(false);
+        leftPanel.SetActive(false);
     }
 
     public void ShowLeftPanel()
     {
-        levelManager.SetActive(true);
+        leftPanel.SetActive(true);
     }
 
     public void ShowLevelSelector()
     {
-        levelSelector.SetActive(true);
+        if (!levelSelector.activeSelf)
+        {
+            levelSelector.SetActive(true);
+        }
     }
 }
