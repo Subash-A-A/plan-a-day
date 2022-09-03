@@ -4,14 +4,12 @@ using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
     public Round[] RoundList;
-    [SerializeField] Transform Panel;
-
     private LevelManager manager;
 
 
     private void Awake()
     {
-        manager = GetComponentInParent<LevelManager>();
+        manager = FindObjectOfType<LevelManager>();
     }
 
     private void Start()
@@ -20,7 +18,7 @@ public class Level : MonoBehaviour
         {
             for(int j = 0; j < RoundList[i].Question.Length; j++)
             {
-                GameObject question = Instantiate(manager.GetQuestionPrefab(), Panel);
+                GameObject question = Instantiate(manager.GetQuestionPrefab(), transform);
                 
                 question.name = "Question: " + (j + 1);
                 

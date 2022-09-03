@@ -29,8 +29,6 @@ public class LevelSelector : MonoBehaviour
             levelNumber.text = level.ToString();
         }
     }
-
-    // Close Button
     public void CloseLevelSelector()
     {
         gameObject.SetActive(false);

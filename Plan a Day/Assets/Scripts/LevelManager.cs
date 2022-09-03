@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -9,22 +7,24 @@ public class LevelManager : MonoBehaviour
     public int levelsUnlocked = 5;
 
     [SerializeField] GameObject QuestionPrefab;
+    [SerializeField] Transform LevelPanel;
 
     private void Start()
     {
         gameObject.SetActive(true);
+        UpdateLevel();
     }
-    private void OnEnable()
+    public void UpdateLevel()
     {
-        for(int i = 0; i < transform.childCount; i++)
+        for(int i = 0; i < LevelPanel.childCount; i++)
         {
             if((i + 1) == currentLevel)
-            {   
-                transform.GetChild(i).gameObject.SetActive(true);
+            {
+                LevelPanel.GetChild(i).gameObject.SetActive(true);
             }
             else
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                LevelPanel.GetChild(i).gameObject.SetActive(false);
             }
         }
     }
@@ -32,5 +32,10 @@ public class LevelManager : MonoBehaviour
     public GameObject GetQuestionPrefab()
     {
         return QuestionPrefab;
+    }
+
+    public GameObject GetLevelPanel()
+    {
+        return LevelPanel.gameObject;
     }
 }

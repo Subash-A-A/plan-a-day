@@ -5,24 +5,19 @@ public class RightPanelAppear : MonoBehaviour
 {
     [SerializeField] Color colorFullAlpha;
     [SerializeField] Color colorTransparent;
-    [SerializeField] GameObject levelManager;
+    [SerializeField] GameObject leftPanel;
+    [SerializeField] Image rightPanel;
 
-    private Image panel;
-
-    private void Start()
-    {
-        panel = GetComponentInChildren<Image>();
-    }
 
     private void Update()
     {
-        if (levelManager.activeSelf)
+        if (leftPanel.activeSelf)
         {
-            panel.color = Color.Lerp(panel.color, colorFullAlpha, 10 * Time.unscaledDeltaTime);
+            rightPanel.color = Color.Lerp(rightPanel.color, colorFullAlpha, 10 * Time.unscaledDeltaTime);
         }
         else
         {
-            panel.color = Color.Lerp(panel.color, colorTransparent, 10 * Time.unscaledDeltaTime);
+            rightPanel.color = Color.Lerp(rightPanel.color, colorTransparent, 10 * Time.unscaledDeltaTime);
         }
     }
 }
