@@ -23,5 +23,6 @@ public class LevelGridElement : MonoBehaviour
         manager.currentLevel = levelNumber;
         selector.gameObject.SetActive(false);
         manager.UpdateLevel();
+        manager.UpdateAppointment();
     }
 }

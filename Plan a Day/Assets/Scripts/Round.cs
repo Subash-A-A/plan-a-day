@@ -7,4 +7,5 @@ public class Round
 {   
     public string[] Question;
     public int[] Answers;
+    public Appoinment[] Appoinments;
 }
