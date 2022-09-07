@@ -21,6 +21,7 @@ public class LevelGridElement : MonoBehaviour
     public void ChangeLevel()
     {
         manager.currentLevel = levelNumber;
+        manager.currentRound = 1;
         selector.gameObject.SetActive(false);
         manager.UpdateLevel();
         manager.UpdateAppointment();
