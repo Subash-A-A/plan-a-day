@@ -10,7 +10,6 @@ public class LevelGridElement : MonoBehaviour
     private int levelNumber;
     private void Awake()
     {
-        manager = FindObjectOfType<LevelManager>();
         levelText = GetComponentInChildren<Text>();
         selector = GetComponentInParent<LevelSelector>();
     }
@@ -20,8 +19,8 @@ public class LevelGridElement : MonoBehaviour
     }
     public void ChangeLevel()
     {
-        manager.currentLevel = levelNumber;
-        manager.currentRound = 1;
+        LevelManager.currentLevel = levelNumber;
+        LevelManager.currentRound = 1;
         selector.gameObject.SetActive(false);
         manager.UpdateLevel();
         manager.UpdateAppointment();

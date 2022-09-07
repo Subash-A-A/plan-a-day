@@ -28,7 +28,7 @@ public class Level : MonoBehaviour
                 }
             }
 
-            if ((i + 1) != manager.currentRound)
+            if ((i + 1) != LevelManager.currentRound)
             {
                 round.SetActive(false);
             }

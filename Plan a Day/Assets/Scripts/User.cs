@@ -1,15 +1,21 @@
 public class User
 {
-    public string username;
-    public string password;
+    public string email;
+    public string userID;
+    public int currentLevel;
+    public int currentRound;
+    public int levelsUnlocked;
 
     public User()
     {
     }
 
-    public User(string username, string password)
+    public User(string email, string userID, int currentLevel, int currentRound, int levelsUnlocked)
     {
-        this.username = username;
-        this.password = password;
+        this.email = email;
+        this.userID = userID;
+        this.currentLevel = currentLevel;
+        this.currentRound = currentRound;
+        this.levelsUnlocked = levelsUnlocked;
     }
 }

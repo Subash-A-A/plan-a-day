@@ -1,25 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using Firebase.Database;
 
 public class DBManager : MonoBehaviour
 {
-    [SerializeField] InputField userNameInput;
-    [SerializeField] InputField passwordInput;
-    private string userID;
-    private DatabaseReference dbReference;
+    private static DatabaseReference dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
-    private void Start()
+    public static void CreateUser(string email, string userID, int currentLevel, int currentRound, int levelsUnlocked)
     {
-        userID = SystemInfo.deviceUniqueIdentifier;
-        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
-
-    public void CreateUser()
-    {
-        User newUser = new User(userNameInput.text, passwordInput.text);
+        User newUser = new User(email, userID, currentLevel, currentRound, levelsUnlocked);
         string json = JsonUtility.ToJson(newUser);
-
         dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+        Debug.Log("User Created");
     }
+   
 }

@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public int noOfLevels = 10;
-    public int currentLevel = 1;
-    public int currentRound = 1;
-    public int levelsUnlocked = 5;
+    public static int noOfLevels = 14;
+    public static int currentLevel = 1;
+    public static int currentRound = 1 ;
+    public static int levelsUnlocked = 1;
     
     [SerializeField] GameObject QuestionPrefab;
     [SerializeField] GameObject RoundPrefab;

@@ -6,7 +6,6 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] GameObject levelUnitUnlocked;
     [SerializeField] GameObject levelUnitLocked;
     [SerializeField] Transform Grid;
-    [SerializeField] LevelManager manager;
 
     private int level;
 
@@ -21,9 +20,9 @@ public class LevelSelector : MonoBehaviour
     void DisplayLevels()
     {
         level = 1;
-        for (; level <= manager.noOfLevels; level++)
+        for (; level <= LevelManager.noOfLevels; level++)
         {
-            GameObject choosePrefab = (level <= manager.levelsUnlocked) ? levelUnitUnlocked : levelUnitLocked;
+            GameObject choosePrefab = (level <= LevelManager.levelsUnlocked) ? levelUnitUnlocked : levelUnitLocked;
             GameObject gridElement = Instantiate(choosePrefab, Grid);
             Text levelNumber = gridElement.GetComponentInChildren<Text>();
             levelNumber.text = level.ToString();

@@ -3,6 +3,10 @@ using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Firebase.Database;
+using Firebase.Extensions;
+using UnityEngine.SceneManagement;
+using System;
 
 public class AuthManager : MonoBehaviour
 {
@@ -10,6 +14,7 @@ public class AuthManager : MonoBehaviour
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;
     public FirebaseUser user;
+    public DatabaseReference DBreference;
 
     [Header("Login")]
     public InputField emailLoginField;
@@ -24,6 +29,7 @@ public class AuthManager : MonoBehaviour
     public InputField confirmPasswordRegisterField;
     public Text warningRegisterText;
 
+    
     private void Awake()
     {
         InitializeFirebase();
@@ -45,11 +51,13 @@ public class AuthManager : MonoBehaviour
     {
         Debug.Log("Setting up Firebase Auth");
         auth = FirebaseAuth.DefaultInstance;
+        DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     public void LoginButton()
     {
         StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
+
     }
 
     public void RegisterButton()
@@ -96,10 +104,16 @@ public class AuthManager : MonoBehaviour
         {
             //User is now logged in
             //Now get the result
-            FirebaseUser user = LoginTask.Result;
+            user = LoginTask.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+            PlayerPrefs.SetString("email", _email);
+            PlayerPrefs.Save();
+            
+            LoadUserData();
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -151,7 +165,7 @@ public class AuthManager : MonoBehaviour
             {
                 //User has now been created
                 //Now get the result
-                FirebaseUser user = RegisterTask.Result;
+                user = RegisterTask.Result;
 
                 if (user != null)
                 {
@@ -177,10 +191,32 @@ public class AuthManager : MonoBehaviour
                         //Now return to login screen
                         LoginPage.FindObjectOfType<LoginPage>().openLoginPage();
                         warningRegisterText.text = "";
+                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1);
                     }
                 }
             }
         }
+    }
+
+    private void LoadUserData()
+    {
+        string userID = user.UserId.ToString();
+        //Get the currently logged in user data\
+
+        FirebaseDatabase.DefaultInstance.RootReference.Child("user").Child(userID).GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Error");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                LevelManager.levelsUnlocked = int.Parse(snapshot.Child("levelsUnlocked").GetValue(false).ToString());
+                LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetValue(false).ToString());
+                LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
+            }
+        });
     }
 
 }
