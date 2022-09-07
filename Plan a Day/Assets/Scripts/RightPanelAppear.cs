@@ -1,23 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RightPanelAppear : MonoBehaviour
 {
-    [SerializeField] Color colorFullAlpha;
-    [SerializeField] Color colorTransparent;
     [SerializeField] GameObject leftPanel;
-    [SerializeField] Image rightPanel;
+    private Animator anim;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
         if (leftPanel.activeSelf)
         {
-            rightPanel.color = Color.Lerp(rightPanel.color, colorFullAlpha, 10 * Time.unscaledDeltaTime);
+            anim.SetBool("RightPanelChange", false);
         }
         else
         {
-            rightPanel.color = Color.Lerp(rightPanel.color, colorTransparent, 10 * Time.unscaledDeltaTime);
+            anim.SetBool("RightPanelChange", true);
         }
     }
 }
