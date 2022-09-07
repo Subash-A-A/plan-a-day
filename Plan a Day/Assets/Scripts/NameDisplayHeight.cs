@@ -3,18 +3,23 @@ using UnityEngine.UI;
 public class NameDisplayHeight : MonoBehaviour
 {
     public float displayAtHeight = 5f;
+
     private contentScript content;
+    private LevelManager manager;
+
     private void Start()
     {
         content = FindObjectOfType<contentScript>();
+        manager = FindObjectOfType<LevelManager>();
     }
     private void OnMouseDown()
     {
-        GameObject journalEntry = new GameObject("JournalEntry: " + gameObject.transform.name);
-        Text text = journalEntry.AddComponent<Text>();
-        text.text = gameObject.transform.name;
-
-        Instantiate(journalEntry, content.transform);
+        if (!manager.GetLevelPanel().activeSelf)
+        {
+            GameObject journalEntry = Instantiate(content.GetJournalEntry(), content.transform);
+            Text text = journalEntry.GetComponent<Text>();
+            text.text = transform.name;
+        }
     }
 }
 
