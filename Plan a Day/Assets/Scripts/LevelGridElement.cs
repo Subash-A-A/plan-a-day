@@ -10,6 +10,7 @@ public class LevelGridElement : MonoBehaviour
     private int levelNumber;
     private void Awake()
     {
+        manager = FindObjectOfType<LevelManager>();
         levelText = GetComponentInChildren<Text>();
         selector = GetComponentInParent<LevelSelector>();
     }
