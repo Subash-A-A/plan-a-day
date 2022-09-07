@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using Firebase.Database;
 
 public class DBManager : MonoBehaviour
