@@ -477,7 +477,8 @@ MonoBehaviour:
       It is very important to you.
     - You have to go to office as soon as you can, because you have an important
       assignment to complete.
-    Answers: 00000000
+    Answers:
+    - Hotel
     Appoinments:
     - place: Hotel
       time: NaN
@@ -488,7 +489,8 @@ MonoBehaviour:
       cold.
     - "It is your daughter\u2019s birthday. At first, you need to order a cake for
       the evening birthday celebration at your home. It is very important to you."
-    Answers: 01000000
+    Answers:
+    - Home
     Appoinments:
     - place: Pharmacy
       time: NaN
@@ -2818,9 +2820,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1830037981}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: GoToNextRoundLevel
+      - m_Target: {fileID: 1502668262}
+        m_TargetAssemblyTypeName: ButtonControls, Assembly-CSharp
+        m_MethodName: FinishButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5846,7 +5848,8 @@ MonoBehaviour:
       to you.
     - It is very important to meet your friend Mr. Kumar at bakery, as he invites
       you for a coffee.
-    Answers: 01000000
+    Answers:
+    - Bakery
     Appoinments:
     - place: Fruit Stall
       time: NaN
@@ -6266,8 +6269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da44b8b7aee14e4b97d1c5c976b6adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSecond: 0
-  startMinute: 2
   countDownSeconds: {fileID: 1732537638}
   Expired: {fileID: 1497557617}
 --- !u!4 &1347040344
@@ -6326,7 +6327,7 @@ GameObject:
   - component: {fileID: 1347170016}
   - component: {fileID: 1347170017}
   m_Layer: 6
-  m_Name: Veggie Stall
+  m_Name: Fruit Stall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7036,8 +7037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftPanel: {fileID: 2046345015}
-  levelSelector: {fileID: 2012587094}
+  levelSelector: {fileID: 2012587098}
   journalContent: {fileID: 1104283831}
+  levelManager: {fileID: 1830037981}
   Buildings: {fileID: 437279206}
   BackButtonGameObject: {fileID: 1209666136}
 --- !u!1 &1554459270

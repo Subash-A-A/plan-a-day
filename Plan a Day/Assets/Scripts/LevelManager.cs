@@ -125,4 +125,26 @@ public class LevelManager : MonoBehaviour
         UpdateLevel();
         UpdateAppointment();
     }
+
+    public bool CheckAnswer(string[] journalEntries)
+    {
+        Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
+        
+        if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
+        {
+            return false;
+        }
+        else
+        {
+            for(int i = 0; i < journalEntries.Length; i++)
+            {
+                if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }

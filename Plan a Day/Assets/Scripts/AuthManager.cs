@@ -36,6 +36,7 @@ public class AuthManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         InitializeFirebase();
         // FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         // {
@@ -248,5 +249,10 @@ public class AuthManager : MonoBehaviour
             }
         });
     }
-
+    public void UpdateUserData(int levelsUnlocked, int currentLevel, int currentRound)
+    {
+        DBreference.Child("user").Child(user.UserId).Child("levelsUnlocked").SetValueAsync(levelsUnlocked);
+        DBreference.Child("user").Child(user.UserId).Child("currentLevel").SetValueAsync(currentLevel);
+        DBreference.Child("user").Child(user.UserId).Child("currentRound").SetValueAsync(currentRound);
+    }
 }

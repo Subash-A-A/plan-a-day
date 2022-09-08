@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
+using Firebase.Database;
+using Firebase.Auth;
 
 public class ButtonControls : MonoBehaviour
 {
     [SerializeField] GameObject leftPanel;
-    [SerializeField] GameObject levelSelector;
+    [SerializeField] LevelSelector levelSelector;
     [SerializeField] Transform journalContent;
+    [SerializeField] LevelManager levelManager;
     
     [SerializeField] Transform Buildings;
     [SerializeField] GameObject BackButtonGameObject;
@@ -41,9 +45,9 @@ public class ButtonControls : MonoBehaviour
 
     public void ShowLevelSelector()
     {
-        if (!levelSelector.activeSelf)
+        if (!levelSelector.gameObject.activeSelf)
         {
-            levelSelector.SetActive(true);
+            levelSelector.gameObject.SetActive(true);
         }
     }
     public void BackButton()
@@ -76,5 +80,40 @@ public class ButtonControls : MonoBehaviour
                 return;
             }
         }
+    }
+    public void FinishButton()
+    {
+        string[] arr = GetJournalEntries();
+        if (levelManager.CheckAnswer(arr))
+        {
+            levelManager.GoToNextRoundLevel();
+            levelSelector.UpdateLevel();
+            UpdateData();
+        }
+        else
+        {
+            Debug.LogError("Wrong Answer");
+        }
+    }
+
+    public void UpdateData()
+    {
+        AuthManager authManager = FindObjectOfType<AuthManager>();
+        authManager.UpdateUserData(LevelManager.levelsUnlocked, LevelManager.currentLevel, LevelManager.currentRound);
+    }
+
+    private string[] GetJournalEntries()
+    {
+        string[] arr = new string[journalContent.childCount];
+
+        for(int i = 0; i < journalContent.childCount; i++)
+        {
+            arr[i] = journalContent.GetChild(i).GetComponent<Text>().text;
+        }
+        foreach(string journalEntry in arr)
+        {
+            Debug.Log(journalEntry);
+        }
+        return arr;
     }
 }

@@ -6,6 +6,6 @@ using UnityEngine;
 public class Round
 {   
     public string[] Question;
-    public int[] Answers;
+    public string[] Answers;
     public Appoinment[] Appoinments;
 }

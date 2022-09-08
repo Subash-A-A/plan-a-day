@@ -30,7 +30,11 @@ public class LevelSelector : MonoBehaviour
     {   
 
         yield return new WaitUntil(predicate: () => isAssigned);
-
+        UpdateLevel();
+    }
+    public void UpdateLevel()
+    {
+        DeleteChildren();
         level = 1;
         for (; level <= LevelManager.noOfLevels; level++)
         {
@@ -41,6 +45,14 @@ public class LevelSelector : MonoBehaviour
             levelNumber.text = level.ToString();
         }
     }
+    public void DeleteChildren()
+    {
+        foreach (Transform child in Grid.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     public void CloseLevelSelector()
     {
         gameObject.SetActive(false);
