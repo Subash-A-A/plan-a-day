@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class LevelGridElement : MonoBehaviour
@@ -20,10 +21,18 @@ public class LevelGridElement : MonoBehaviour
     }
     public void ChangeLevel()
     {
-        LevelManager.currentLevel = levelNumber;
         LevelManager.currentRound = 1;
-        selector.gameObject.SetActive(false);
+        LevelManager.currentLevel = levelNumber;
+        StartCoroutine(UpdateLevelAppoinments());
+    }
+
+    IEnumerator UpdateLevelAppoinments()
+    {
+        bool check = LevelManager.currentLevel == levelNumber && LevelManager.currentRound == 1;
+        yield return new WaitUntil(predicate: () => check);
+
         manager.UpdateLevel();
         manager.UpdateAppointment();
+        selector.gameObject.SetActive(false);
     }
 }

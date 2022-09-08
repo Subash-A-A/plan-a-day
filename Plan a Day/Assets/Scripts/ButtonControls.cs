@@ -10,6 +10,7 @@ public class ButtonControls : MonoBehaviour
     [SerializeField] LevelSelector levelSelector;
     [SerializeField] Transform journalContent;
     [SerializeField] LevelManager levelManager;
+    [SerializeField] GameObject LevelCompletePopup;
     
     [SerializeField] Transform Buildings;
     [SerializeField] GameObject BackButtonGameObject;
@@ -19,6 +20,7 @@ public class ButtonControls : MonoBehaviour
     private void Start()
     {
         flagManager = FindObjectOfType<FlagManager>();
+        LevelCompletePopup.SetActive(false);
     }
 
     private void Update()
@@ -88,11 +90,22 @@ public class ButtonControls : MonoBehaviour
         {
             levelManager.GoToNextRoundLevel();
             levelSelector.UpdateLevel();
+            ClearJournal();
+            MoveFlag("Home");
+            ShowLevelCompletePopup();
             UpdateData();
         }
         else
         {
             Debug.LogError("Wrong Answer");
+        }
+    }
+
+    private void ClearJournal()
+    {
+        foreach (Transform journalEntry in journalContent)
+        {
+            Destroy(journalEntry.gameObject);
         }
     }
 
@@ -115,5 +128,17 @@ public class ButtonControls : MonoBehaviour
             Debug.Log(journalEntry);
         }
         return arr;
+    }
+    public void CloseLevelSelector()
+    {
+        levelSelector.gameObject.SetActive(false);
+    }
+    public void CloseLevelCompletePopup()
+    {
+        LevelCompletePopup.SetActive(false);
+    }
+    private void ShowLevelCompletePopup()
+    {
+        LevelCompletePopup.SetActive(true);
     }
 }

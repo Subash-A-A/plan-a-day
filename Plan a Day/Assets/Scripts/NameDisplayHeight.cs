@@ -16,15 +16,17 @@ public class NameDisplayHeight : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!manager.GetLevelPanel().activeSelf)
+        if (!manager.GetLevelPanel().activeSelf && !manager.GetLevelSelector().activeSelf)
         {
             GameObject journalEntry = Instantiate(content.GetJournalEntry(), content.transform);
             Text text = journalEntry.GetComponent<Text>();
             text.text = transform.name;
+
+            // Flag position is always at child0
+            Transform flagPosition = transform.GetChild(0);
+            flagManager.SetFlagTransform(flagPosition.position, flagPosition.rotation);
         }
-        // Flag position is always at child0
-        Transform flagPosition = transform.GetChild(0);
-        flagManager.SetFlagTransform(flagPosition.position, flagPosition.rotation);
+        
     }
 }
 

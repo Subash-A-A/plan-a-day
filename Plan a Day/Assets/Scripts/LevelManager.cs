@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject RoundPrefab;
     [SerializeField] GameObject AppointmentPrefab;
     [SerializeField] Transform LevelPanel;
+    [SerializeField] Transform LevelSelector;
     [SerializeField] Transform AppointmentPanel;
 
     private int maxRounds;
@@ -50,7 +51,8 @@ public class LevelManager : MonoBehaviour
                 LevelPanel.GetChild(i).gameObject.SetActive(false);
             }
         }
-        for(int i = 0; i < currentLevelGameObject.transform.childCount; i++)
+        ChangeCurrentLevel();
+        for (int i = 0; i < currentLevelGameObject.transform.childCount; i++)
         {
             if ((i + 1) == currentRound)
             {
@@ -96,7 +98,10 @@ public class LevelManager : MonoBehaviour
     {
         return RoundPrefab;
     }
-
+    public GameObject GetLevelSelector()
+    {
+        return LevelSelector.gameObject;
+    }
     public GameObject GetLevelPanel()
     {
         return LevelPanel.gameObject;

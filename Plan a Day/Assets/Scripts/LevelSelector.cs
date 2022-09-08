@@ -52,9 +52,4 @@ public class LevelSelector : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-
-    public void CloseLevelSelector()
-    {
-        gameObject.SetActive(false);
-    }
 }
