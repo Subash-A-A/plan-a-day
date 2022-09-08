@@ -29,7 +29,10 @@ public class AuthManager : MonoBehaviour
     public InputField confirmPasswordRegisterField;
     public Text warningRegisterText;
 
-    
+    private bool isAdmin;
+    [SerializeField] LoginPage page;
+
+
     private void Awake()
     {
         InitializeFirebase();
@@ -110,10 +113,22 @@ public class AuthManager : MonoBehaviour
             confirmLoginText.text = "Logged In";
             PlayerPrefs.SetString("email", _email);
             PlayerPrefs.Save();
-            
+
             LoadUserData();
 
+
+        }
+    }
+
+    private void LoadNextPage()
+    {
+        if (isAdmin == false)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            page.openAdminAuthPage();
         }
     }
 
@@ -191,7 +206,7 @@ public class AuthManager : MonoBehaviour
                         //Now return to login screen
                         LoginPage.FindObjectOfType<LoginPage>().openLoginPage();
                         warningRegisterText.text = "";
-                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1);
+                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1, false);
                         user.SendEmailVerificationAsync();
                     }
                 }
@@ -217,10 +232,9 @@ public class AuthManager : MonoBehaviour
                 LevelManager.levelsUnlocked = int.Parse(snapshot.Child("levelsUnlocked").GetValue(false).ToString());
                 LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetValue(false).ToString());
                 LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
+                isAdmin = bool.Parse(snapshot.Child("isAdmin").GetValue(false).ToString());
                 PlayerPrefs.SetInt("ValuesAssigned?", 1);
-
-
-                Debug.Log(LevelManager.levelsUnlocked);
+                LoadNextPage();
             }
         });
     }
