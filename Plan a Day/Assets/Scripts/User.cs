@@ -6,12 +6,13 @@ public class User
     public int currentRound;
     public int levelsUnlocked;
     public bool isAdmin;
+    public string timer;
 
     public User()
     {
     }
 
-    public User(string email, string userID, int currentLevel, int currentRound, int levelsUnlocked, bool isAdmin)
+    public User(string email, string userID, int currentLevel, int currentRound, int levelsUnlocked, bool isAdmin, string timer)
     {
         this.email = email;
         this.userID = userID;
@@ -19,5 +20,6 @@ public class User
         this.currentRound = currentRound;
         this.levelsUnlocked = levelsUnlocked;
         this.isAdmin = false;
+        this.timer = timer;
     }
 }

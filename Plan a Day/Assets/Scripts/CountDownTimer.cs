@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-    [SerializeField] float startSecond = 10f;
-    [SerializeField] float startMinute = 0f;
+    public static float startSecond = 10f;
+    public static float startMinute = 0f;
 
     [SerializeField] Text countDownSeconds;
     [SerializeField] GameObject Expired;
@@ -13,7 +13,7 @@ public class CountDownTimer : MonoBehaviour
     private float currentMinute = 0f;
 
     void Start()
-    {   
+    {
         countDownSeconds.gameObject.SetActive(true);
         Expired.SetActive(false);
 

@@ -31,6 +31,7 @@ public class AuthManager : MonoBehaviour
 
     private bool isAdmin;
     [SerializeField] LoginPage page;
+    string time;
 
 
     private void Awake()
@@ -206,7 +207,7 @@ public class AuthManager : MonoBehaviour
                         //Now return to login screen
                         LoginPage.FindObjectOfType<LoginPage>().openLoginPage();
                         warningRegisterText.text = "";
-                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1, false);
+                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1, false, "30:00");
                         user.SendEmailVerificationAsync();
                     }
                 }
@@ -233,6 +234,15 @@ public class AuthManager : MonoBehaviour
                 LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetValue(false).ToString());
                 LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
                 isAdmin = bool.Parse(snapshot.Child("isAdmin").GetValue(false).ToString());
+                time = snapshot.Child("timer").GetValue(false).ToString();
+                if (isAdmin == false)
+                {
+                    float second = int.Parse(time.Split(":")[1]);
+                    float minute = int.Parse(time.Split(":")[0]);
+                    CountDownTimer.startMinute = minute;
+                    CountDownTimer.startSecond = second;
+                }
+
                 PlayerPrefs.SetInt("ValuesAssigned?", 1);
                 LoadNextPage();
             }
