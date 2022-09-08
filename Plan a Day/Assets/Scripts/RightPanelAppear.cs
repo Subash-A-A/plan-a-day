@@ -3,11 +3,12 @@ using UnityEngine;
 public class RightPanelAppear : MonoBehaviour
 {
     [SerializeField] GameObject leftPanel;
+    [SerializeField] GameObject rightPanel;
     private Animator anim;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = rightPanel.GetComponent<Animator>();
     }
 
     private void Update()

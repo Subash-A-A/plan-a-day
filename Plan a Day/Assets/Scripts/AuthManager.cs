@@ -192,6 +192,7 @@ public class AuthManager : MonoBehaviour
                         LoginPage.FindObjectOfType<LoginPage>().openLoginPage();
                         warningRegisterText.text = "";
                         DBManager.CreateUser(_email, user.UserId, 1, 1, 1);
+                        user.SendEmailVerificationAsync();
                     }
                 }
             }

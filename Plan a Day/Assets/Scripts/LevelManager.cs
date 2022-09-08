@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -17,14 +18,21 @@ public class LevelManager : MonoBehaviour
     private int maxRounds;
     private Appoinment[] currentAppoinments;
     private GameObject currentLevelGameObject;
+    private bool isAssigned = false;
 
     private void Awake()
     {
         gameObject.SetActive(true);
+        StartCoroutine(LoadLevel());
     }
 
-    private void Start()
+    private void Update()
     {
+        isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
+    }
+    public IEnumerator LoadLevel()
+    {
+        yield return new WaitUntil(predicate: () => isAssigned);
         ChangeCurrentLevel();
         UpdateLevel();
         UpdateAppointment();
