@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -8,20 +9,32 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] Transform Grid;
 
     private int level;
+    private bool isAssigned = false;
 
     private void Awake()
     {
-        DisplayLevels();
+        gameObject.SetActive(true);
     }
+
     private void Start()
     {
-        gameObject.SetActive(false);
+        StartCoroutine(DisplayLevels());
     }
-    void DisplayLevels()
+
+    private void Update()
     {
+        isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
+    }
+
+    IEnumerator DisplayLevels()
+    {   
+
+        yield return new WaitUntil(predicate: () => isAssigned);
+
         level = 1;
         for (; level <= LevelManager.noOfLevels; level++)
         {
+            Debug.Log(LevelManager.levelsUnlocked);
             GameObject choosePrefab = (level <= LevelManager.levelsUnlocked) ? levelUnitUnlocked : levelUnitLocked;
             GameObject gridElement = Instantiate(choosePrefab, Grid);
             Text levelNumber = gridElement.GetComponentInChildren<Text>();

@@ -211,10 +211,15 @@ public class AuthManager : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
+                PlayerPrefs.SetInt("ValuesAssigned?", 0);
                 DataSnapshot snapshot = task.Result;
                 LevelManager.levelsUnlocked = int.Parse(snapshot.Child("levelsUnlocked").GetValue(false).ToString());
                 LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetValue(false).ToString());
                 LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
+                PlayerPrefs.SetInt("ValuesAssigned?", 1);
+
+
+                Debug.Log(LevelManager.levelsUnlocked);
             }
         });
     }
