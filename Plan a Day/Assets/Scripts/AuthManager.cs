@@ -3,10 +3,11 @@ using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using Firebase.Database;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
-using System;
+using Newtonsoft.Json;
 
 public class AuthManager : MonoBehaviour
 {
@@ -262,5 +263,29 @@ public class AuthManager : MonoBehaviour
         DBreference.Child("user").Child(user.UserId).Child("currentLevel").SetValueAsync(currentLevel);
         DBreference.Child("user").Child(user.UserId).Child("currentRound").SetValueAsync(currentRound);
         DBreference.Child("user").Child(user.UserId).Child("timer").SetValueAsync(timer);
+    }
+    public void GetUsers()
+    {
+        FirebaseDatabase.DefaultInstance.RootReference.Child("user").GetValueAsync().ContinueWithOnMainThread(task => 
+        {
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                string json = snapshot.GetRawJsonValue();
+                var values = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+                foreach (var uni in values)
+                {
+                    //you can print values here or add to a list or ...
+                    int currentLevel = int.Parse(uni.Value["currentLevel"]);
+                    int currentRound = int.Parse(uni.Value["currentRound"]);
+                    string email = uni.Value["email"];
+                    bool isAdmin = bool.Parse(uni.Value["isAdmin"]);
+                    int levelsUnlocked = int.Parse(uni.Value["levelsUnlocked"]);
+                    string timer = uni.Value["timer"];
+                    string userID = uni.Value["userID"];
+                    Debug.Log(currentLevel + ", " + currentRound + ", " + email + ", " + isAdmin + ", " + levelsUnlocked + ", " + timer + ", " + userID);
+                }
+            }
+        });
     }
 }
