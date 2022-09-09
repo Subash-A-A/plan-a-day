@@ -32,7 +32,8 @@ public class AuthManager : MonoBehaviour
     private bool isAdmin;
     [SerializeField] LoginPage page;
     string time;
-
+    [Header("Debugging")]
+    public bool DebuggingMode;
 
     private void Awake()
     {
@@ -110,15 +111,21 @@ public class AuthManager : MonoBehaviour
             //User is now logged in
             //Now get the result
             user = LoginTask.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
-            PlayerPrefs.SetString("email", _email);
-            PlayerPrefs.Save();
 
-            LoadUserData();
+            if (user.IsEmailVerified || DebuggingMode)
+            {
+                Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
+                warningLoginText.text = "";
+                confirmLoginText.text = "Logged In";
+                PlayerPrefs.SetString("email", _email);
+                PlayerPrefs.Save();
 
-
+                LoadUserData();
+            }
+            else
+            {
+                Debug.Log("Email Not Verified!");
+            }
         }
     }
 
