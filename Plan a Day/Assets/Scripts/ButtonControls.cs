@@ -1,8 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Firebase;
-using Firebase.Database;
-using Firebase.Auth;
 
 public class ButtonControls : MonoBehaviour
 {
