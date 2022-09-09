@@ -226,9 +226,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8ae0000
+      m_SelectedIDs: 1c6d0000
       m_LastClickedID: 0
-      m_ExpandedIDs: faa5fdffb4b2feff82b4feff94c5feffa0cffeff9ee8feffbceffeffa2fafeff7204ffff8806ffff6a0effff3841ffff1afbfffff4ffffff426b0000e86b0000326c0000546c0000aa6c00004c6d00007a6d0000c86d0000e26d0000546e0000c4e6000056e7000078e700009ee800000ef7000006f8000034f800000ef90000fefd0000f6fe000024ff0000feff0000dc170100d2190100ca310100ca330100
+      m_ExpandedIDs: 04e4fffffce9ffff1afbffff5c7800007e780000ac790000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 1091
     height: 624
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -666,9 +666,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: ee710000
-    m_LastClickedID: 29166
-    m_ExpandedIDs: 00000000e8710000ea710000ec710000ee710000f47100000072000000ca9a3b
+    m_SelectedIDs: 546d0000
+    m_LastClickedID: 27988
+    m_ExpandedIDs: 000000004e6d0000506d0000526d0000546d0000566d0000486f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -696,7 +696,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e8710000ea710000ec710000ee7100000072000000ca9a3b
+    m_ExpandedIDs: 000000004e6d0000506d0000526d0000546d0000566d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -721,8 +721,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a8ae0000
-    m_LastClickedInstanceID: 44712
+    m_SelectedInstanceIDs: 1c6d0000
+    m_LastClickedInstanceID: 27932
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000000000000a260000
     m_RenameOverlay:
@@ -830,8 +830,8 @@ MonoBehaviour:
     y: 0
     width: 473
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}

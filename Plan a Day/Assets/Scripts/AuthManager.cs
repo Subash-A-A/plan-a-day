@@ -249,10 +249,11 @@ public class AuthManager : MonoBehaviour
             }
         });
     }
-    public void UpdateUserData(int levelsUnlocked, int currentLevel, int currentRound)
+    public void UpdateUserData(int levelsUnlocked, int currentLevel, int currentRound, string timer)
     {
         DBreference.Child("user").Child(user.UserId).Child("levelsUnlocked").SetValueAsync(levelsUnlocked);
         DBreference.Child("user").Child(user.UserId).Child("currentLevel").SetValueAsync(currentLevel);
         DBreference.Child("user").Child(user.UserId).Child("currentRound").SetValueAsync(currentRound);
+        DBreference.Child("user").Child(user.UserId).Child("timer").SetValueAsync(timer);
     }
 }

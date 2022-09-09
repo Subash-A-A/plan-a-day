@@ -11,14 +11,17 @@ public class ButtonControls : MonoBehaviour
     [SerializeField] Transform journalContent;
     [SerializeField] LevelManager levelManager;
     [SerializeField] GameObject LevelCompletePopup;
+    [SerializeField] Text Timer;
     
     [SerializeField] Transform Buildings;
     [SerializeField] GameObject BackButtonGameObject;
 
     private FlagManager flagManager;
+    private AuthManager authManager;
 
     private void Start()
     {
+        authManager = FindObjectOfType<AuthManager>();
         flagManager = FindObjectOfType<FlagManager>();
         LevelCompletePopup.SetActive(false);
     }
@@ -69,7 +72,6 @@ public class ButtonControls : MonoBehaviour
             Destroy(lastChildTransform.gameObject);
             MoveFlag("Home");
         }
-        
     }
 
     private void MoveFlag(string buildingName)
@@ -111,8 +113,7 @@ public class ButtonControls : MonoBehaviour
 
     public void UpdateData()
     {
-        AuthManager authManager = FindObjectOfType<AuthManager>();
-        authManager.UpdateUserData(LevelManager.levelsUnlocked, LevelManager.currentLevel, LevelManager.currentRound);
+        authManager.UpdateUserData(LevelManager.levelsUnlocked, LevelManager.currentLevel, LevelManager.currentRound, Timer.text);
     }
 
     private string[] GetJournalEntries()
@@ -140,5 +141,10 @@ public class ButtonControls : MonoBehaviour
     private void ShowLevelCompletePopup()
     {
         LevelCompletePopup.SetActive(true);
+    }
+
+    private void OnApplicationQuit()
+    {
+        UpdateData();
     }
 }
