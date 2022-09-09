@@ -276,14 +276,13 @@ public class AuthManager : MonoBehaviour
                 foreach (var uni in values)
                 {
                     //you can print values here or add to a list or ...
-                    int currentLevel = int.Parse(uni.Value["currentLevel"]);
-                    int currentRound = int.Parse(uni.Value["currentRound"]);
-                    string email = uni.Value["email"];
-                    bool isAdmin = bool.Parse(uni.Value["isAdmin"]);
-                    int levelsUnlocked = int.Parse(uni.Value["levelsUnlocked"]);
+                    // int currentLevel = int.Parse(uni.Value["currentLevel"]);
+                    // int currentRound = int.Parse(uni.Value["currentRound"]);
+                    // string email = uni.Value["email"];
+                    // bool isAdmin = bool.Parse(uni.Value["isAdmin"]);
+                    // int levelsUnlocked = int.Parse(uni.Value["levelsUnlocked"]);
                     string timer = uni.Value["timer"];
                     string userID = uni.Value["userID"];
-                    Debug.Log(currentLevel + ", " + currentRound + ", " + email + ", " + isAdmin + ", " + levelsUnlocked + ", " + timer + ", " + userID);
                 }
             }
         });
