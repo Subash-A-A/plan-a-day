@@ -31,7 +31,11 @@ public class AuthManager : MonoBehaviour
     public Text warningRegisterText;
 
     private bool isAdmin;
+
     [SerializeField] LoginPage page;
+    [SerializeField] GameObject UserInstancePrefab;
+    [SerializeField] Transform usersContent;
+
     string time;
     [Header("Debugging")]
     public bool DebuggingMode;
@@ -53,7 +57,6 @@ public class AuthManager : MonoBehaviour
         //     }
         // });
     }
-
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
@@ -138,6 +141,7 @@ public class AuthManager : MonoBehaviour
         }
         else
         {
+            GetUsers();
             page.openAdminAuthPage();
         }
     }
@@ -216,7 +220,7 @@ public class AuthManager : MonoBehaviour
                         //Now return to login screen
                         LoginPage.FindObjectOfType<LoginPage>().openLoginPage();
                         warningRegisterText.text = "";
-                        DBManager.CreateUser(_email, user.UserId, 1, 1, 1, false, "30:00");
+                        DBManager.CreateUser(_username, _email, user.UserId, 1, 1, 1, false, "30:00");
                         user.SendEmailVerificationAsync();
                     }
                 }
@@ -274,17 +278,29 @@ public class AuthManager : MonoBehaviour
                 string json = snapshot.GetRawJsonValue();
                 var values = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
                 foreach (var uni in values)
-                {
-                    //you can print values here or add to a list or ...
-                    // int currentLevel = int.Parse(uni.Value["currentLevel"]);
-                    // int currentRound = int.Parse(uni.Value["currentRound"]);
-                    // string email = uni.Value["email"];
-                    // bool isAdmin = bool.Parse(uni.Value["isAdmin"]);
-                    // int levelsUnlocked = int.Parse(uni.Value["levelsUnlocked"]);
+                {   
+                    bool isAdmin = bool.Parse(uni.Value["isAdmin"]);
                     string timer = uni.Value["timer"];
                     string userID = uni.Value["userID"];
+                    string username = uni.Value["username"];
+
+                    GameObject userInstance = Instantiate(UserInstancePrefab, usersContent);
+                    userInstance.name = username;
+                    userInstance.transform.GetChild(0).GetComponent<Text>().text = username;
+                    userInstance.transform.GetChild(1).GetComponent<Text>().text = userID;
+                    userInstance.transform.GetChild(2).GetComponent<InputField>().text = timer;
                 }
             }
         });
+    }
+
+    public void RefreshUsers()
+    {
+        foreach(Transform child in usersContent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        GetUsers();
     }
 }

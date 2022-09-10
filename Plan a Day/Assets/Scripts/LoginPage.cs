@@ -12,8 +12,9 @@ public class LoginPage : MonoBehaviour
     {
         login.SetActive(true);
         register.SetActive(false);
+        adminAuth.SetActive(false);
+        timerPage.SetActive(false);
     }
-
     public void openAdminAuthPage()
     {
         login.SetActive(false);

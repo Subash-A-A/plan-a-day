@@ -1,18 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Auth;
+using UnityEngine.UI;
+
 
 public class AdminManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField] Transform Users;
+    public void Filter(InputField key)
+    {   
+        foreach(Transform user in Users)
+        {
+            if (user.name.ToLower().StartsWith(key.text.ToLower()) || user.name.ToLower().EndsWith(key.text.ToLower()))
+            {
+                user.gameObject.SetActive(true);
+            }
+            else
+            {
+                user.gameObject.SetActive(false);
+            }
+        }
     }
 }
