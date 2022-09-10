@@ -297,6 +297,11 @@ public class AuthManager : MonoBehaviour
         });
     }
 
+    public void UpdateTimer(string uid, string val)
+    {
+        DBreference.Child("user").Child(uid).Child("timer").SetValueAsync(val);
+    }
+
     public void RefreshUsers()
     {
         foreach(Transform child in usersContent)

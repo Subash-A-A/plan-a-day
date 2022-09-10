@@ -2,10 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class AdminManager : MonoBehaviour
 {
     [SerializeField] Transform Users;
+    [SerializeField] GameObject UpdateConformationPopup;
+
+    private void Start()
+    {
+        UpdateConformationPopup.SetActive(false);
+    }
     public void Filter(InputField key)
     {   
         foreach(Transform user in Users)
@@ -19,5 +24,15 @@ public class AdminManager : MonoBehaviour
                 user.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void CloseConformationPopUp()
+    {
+        UpdateConformationPopup.SetActive(false);
+    }
+
+    public GameObject GetConformationPopup()
+    {
+        return UpdateConformationPopup;
     }
 }
