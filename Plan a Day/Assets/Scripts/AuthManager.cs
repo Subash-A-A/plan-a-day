@@ -122,6 +122,7 @@ public class AuthManager : MonoBehaviour
                 warningLoginText.text = "";
                 confirmLoginText.text = "Logged In";
                 PlayerPrefs.SetString("email", _email);
+                PlayerPrefs.SetString("password", _password);
                 PlayerPrefs.Save();
 
                 LoadUserData();

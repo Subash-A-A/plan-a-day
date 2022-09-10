@@ -109,6 +109,7 @@ public class LevelManager : MonoBehaviour
 
     public void GoToNextRoundLevel()
     {
+        LevelPanel.gameObject.SetActive(true);
         if(currentRound < maxRounds)
         {
             currentRound++;
