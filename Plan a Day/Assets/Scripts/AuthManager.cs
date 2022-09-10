@@ -284,11 +284,14 @@ public class AuthManager : MonoBehaviour
                     string userID = uni.Value["userID"];
                     string username = uni.Value["username"];
 
-                    GameObject userInstance = Instantiate(UserInstancePrefab, usersContent);
-                    userInstance.name = username;
-                    userInstance.transform.GetChild(0).GetComponent<Text>().text = username;
-                    userInstance.transform.GetChild(1).GetComponent<Text>().text = userID;
-                    userInstance.transform.GetChild(2).GetComponent<InputField>().text = timer;
+                    if (!isAdmin)
+                    {
+                        GameObject userInstance = Instantiate(UserInstancePrefab, usersContent);
+                        userInstance.name = username;
+                        userInstance.transform.GetChild(0).GetComponent<Text>().text = username;
+                        userInstance.transform.GetChild(1).GetComponent<Text>().text = userID;
+                        userInstance.transform.GetChild(2).GetComponent<InputField>().text = timer;
+                    }
                 }
             }
         });
