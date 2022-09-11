@@ -69,11 +69,8 @@ public class LevelManager : MonoBehaviour
     {
         ChangeCurrentLevel();
         foreach (Transform child in AppointmentPanel)
-        {   
-            if(!AppointmentPanel.GetChild(0).Equals(child))
-            {
-                Destroy(child.gameObject);
-            }
+        {
+            Destroy(child.gameObject);
         }
         for (int i = 0; i < currentAppoinments.Length; i++)
         {

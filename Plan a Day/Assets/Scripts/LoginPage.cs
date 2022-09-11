@@ -29,13 +29,15 @@ public class LoginPage : MonoBehaviour
 
     public void openTimerPage()
     {
-        adminAuth.SetActive(false);
         timerPage.SetActive(true);
+        adminAuth.SetActive(false);
     }
 
     public void openLoginPage()
     {
         login.SetActive(true);
         register.SetActive(false);
+        adminAuth.SetActive(false);
+        timerPage.SetActive(false);
     }
 }

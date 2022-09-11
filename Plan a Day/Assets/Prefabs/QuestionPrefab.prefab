@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 545, y: 120}
+  m_AnchoredPosition: {x: 0, y: -0.0000009536743}
+  m_SizeDelta: {x: 545, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3405665903486235819
 CanvasRenderer:
@@ -68,16 +68,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82f3615fd5ccba740b96a19575cea829, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 24
+    m_MaxSize: 14
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You have bought fruits from the Fruit stall. Your mother wants it. It is
-    important to you.
+  m_Text: Your friend Murali had planned to go on a bike trip to a nearby hill station
+    with his friends. Unfortunately, his bike got repaired. He wants your bike to
+    be given to him at his workplace, the medical shop, by 4.30 pm.

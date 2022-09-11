@@ -147,6 +147,20 @@ public class AuthManager : MonoBehaviour
         }
     }
 
+    public void SignOut()
+    {
+        if (!isAdmin)
+        {
+            FindObjectOfType<ButtonControls>().UpdateData();
+        }
+
+        Destroy(FindObjectOfType<ExitMenu>().gameObject);
+        auth.SignOut();
+        Destroy(FindObjectOfType<AuthManager>().gameObject);
+
+        SceneManager.LoadScene(0);
+    }
+
     private IEnumerator Register(string _email, string _password, string _username)
     {
         if (_username == "")
@@ -270,7 +284,12 @@ public class AuthManager : MonoBehaviour
         DBreference.Child("user").Child(user.UserId).Child("timer").SetValueAsync(timer);
     }
     public void GetUsers()
-    {
+    {   
+        foreach(Transform child in usersContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         FirebaseDatabase.DefaultInstance.RootReference.Child("user").GetValueAsync().ContinueWithOnMainThread(task => 
         {
             if (task.IsCompleted)
