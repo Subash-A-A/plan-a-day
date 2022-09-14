@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
     public Round[] RoundList;
+    public bool isCat2 = false;
     private LevelManager manager;
 
     private void Awake()
