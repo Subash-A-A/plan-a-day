@@ -21,6 +21,9 @@ public class LevelManager : MonoBehaviour
     private GameObject currentLevelGameObject;
     private bool isAssigned = false;
 
+    [HideInInspector]
+    public bool isCat2 = false;
+
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -30,6 +33,7 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
+        isCat2 = currentLevelGameObject.GetComponent<Level>().isCat2;
     }
     public IEnumerator LoadLevel()
     {
@@ -131,19 +135,22 @@ public class LevelManager : MonoBehaviour
 
     public bool CheckAnswer(string[] journalEntries)
     {
-        Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
+        if (!currentLevelGameObject.GetComponent<Level>().isCat2)
+        {
+            Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
         
-        if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
-        {
-            return false;
-        }
-        else
-        {
-            for(int i = 0; i < journalEntries.Length; i++)
+            if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
             {
-                if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
+                return false;
+            }
+            else
+            {
+                for(int i = 0; i < journalEntries.Length; i++)
                 {
-                    return false;
+                    if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
+                    {
+                        return false;
+                    }
                 }
             }
         }
