@@ -15,14 +15,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform LevelPanel;
     [SerializeField] Transform LevelSelector;
     [SerializeField] Transform AppointmentPanel;
+    [SerializeField] GameObject JournalInput;
+    [SerializeField] Transform JournalContent;
 
     private int maxRounds;
     private Appoinment[] currentAppoinments;
     private GameObject currentLevelGameObject;
     private bool isAssigned = false;
 
-    [HideInInspector]
-    public bool isCat2 = false;
+    public bool isLevelCat2;
 
     private void Awake()
     {
@@ -32,8 +33,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        isLevelCat2 = LevelPanel.GetChild(currentLevel - 1).gameObject.GetComponent<Level>().isCat2;
         isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
-        isCat2 = currentLevelGameObject.GetComponent<Level>().isCat2;
     }
     public IEnumerator LoadLevel()
     {
@@ -41,10 +42,14 @@ public class LevelManager : MonoBehaviour
         ChangeCurrentLevel();
         UpdateLevel();
         UpdateAppointment();
+        if (isLevelCat2)
+        {
+            LoadJournalInput();
+        }
     }
     public void UpdateLevel()
-    {
-        for(int i = 0; i < LevelPanel.childCount; i++)
+    {   
+        for (int i = 0; i < LevelPanel.childCount; i++)
         {
             if((i + 1) == currentLevel)
             {
@@ -55,7 +60,7 @@ public class LevelManager : MonoBehaviour
                 LevelPanel.GetChild(i).gameObject.SetActive(false);
             }
         }
-        ChangeCurrentLevel();
+        // ChangeCurrentLevel();
         for (int i = 0; i < currentLevelGameObject.transform.childCount; i++)
         {
             if ((i + 1) == currentRound)
@@ -71,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateAppointment()
     {
-        ChangeCurrentLevel();
+        // ChangeCurrentLevel();
         foreach (Transform child in AppointmentPanel)
         {
             Destroy(child.gameObject);
@@ -84,11 +89,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void ChangeCurrentLevel()
+    public void ChangeCurrentLevel()
     {
         currentLevelGameObject = LevelPanel.GetChild(currentLevel - 1).gameObject;
         maxRounds = currentLevelGameObject.GetComponent<Level>().RoundList.Length;
         currentAppoinments = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Appoinments;
+    }
+
+    public void LoadJournalInput()
+    {   
+        int currentAnswerLength = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Answers.Length;
+
+        foreach (Transform child in JournalContent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < currentAnswerLength; i++)
+        {
+            Instantiate(JournalInput, JournalContent);
+        }
     }
 
     public GameObject GetQuestionPrefab()
@@ -111,7 +131,7 @@ public class LevelManager : MonoBehaviour
     public void GoToNextRoundLevel()
     {
         LevelPanel.gameObject.SetActive(true);
-        if(currentRound < maxRounds)
+        if (currentRound < maxRounds)
         {
             currentRound++;
         }
@@ -128,6 +148,7 @@ public class LevelManager : MonoBehaviour
                 currentLevel++;
             }
         }
+        
         ChangeCurrentLevel();
         UpdateLevel();
         UpdateAppointment();
@@ -135,22 +156,19 @@ public class LevelManager : MonoBehaviour
 
     public bool CheckAnswer(string[] journalEntries)
     {
-        if (!currentLevelGameObject.GetComponent<Level>().isCat2)
-        {
-            Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
+        Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
         
-            if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
+        if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
+        {
+            return false;
+        }
+        else
+        {
+            for(int i = 0; i < journalEntries.Length; i++)
             {
-                return false;
-            }
-            else
-            {
-                for(int i = 0; i < journalEntries.Length; i++)
+                if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
                 {
-                    if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
         }

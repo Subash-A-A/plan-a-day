@@ -263,6 +263,9 @@ public class AuthManager : MonoBehaviour
                 LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
                 isAdmin = bool.Parse(snapshot.Child("isAdmin").GetValue(false).ToString());
                 time = snapshot.Child("timer").GetValue(false).ToString();
+
+                Debug.Log(LevelManager.levelsUnlocked + " " + LevelManager.currentLevel + " " + LevelManager.currentRound);
+
                 if (isAdmin == false)
                 {
                     float second = int.Parse(time.Split(":")[1]);

@@ -14,7 +14,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < RoundList.Length; i++)
+        for (int i = 0; i < RoundList.Length; i++)
         {
             GameObject round = Instantiate(manager.GetRoundPrefab(), transform);
             round.transform.name = "Round: " + (i + 1);

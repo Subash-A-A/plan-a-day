@@ -38,7 +38,6 @@ public class LevelSelector : MonoBehaviour
         level = 1;
         for (; level <= LevelManager.noOfLevels; level++)
         {
-            Debug.Log(LevelManager.levelsUnlocked);
             GameObject choosePrefab = (level <= LevelManager.levelsUnlocked) ? levelUnitUnlocked : levelUnitLocked;
             GameObject gridElement = Instantiate(choosePrefab, Grid);
             Text levelNumber = gridElement.GetComponentInChildren<Text>();

@@ -98,9 +98,13 @@ public class ButtonControls : MonoBehaviour
         {
             Debug.LogError("Wrong Answer");
         }
+        if (levelManager.isLevelCat2)
+        {
+            levelManager.LoadJournalInput();
+        }
     }
 
-    private void ClearJournal()
+    public void ClearJournal()
     {
         foreach (Transform journalEntry in journalContent)
         {
@@ -116,15 +120,19 @@ public class ButtonControls : MonoBehaviour
     private string[] GetJournalEntries()
     {
         string[] arr = new string[journalContent.childCount];
-
-        for(int i = 0; i < journalContent.childCount; i++)
-        {
-            arr[i] = journalContent.GetChild(i).GetComponent<Text>().text;
+        
+        for (int i = 0; i < journalContent.childCount; i++)
+        {   
+            if(journalContent.GetChild(i).TryGetComponent<InputField>(out InputField field))
+            {
+                arr[i] = field.text;
+            }
+            else if(journalContent.GetChild(i).TryGetComponent<Text>(out Text answer))
+            {
+                arr[i] = answer.text;
+            }
         }
-        foreach(string journalEntry in arr)
-        {
-            Debug.Log(journalEntry);
-        }
+        
         return arr;
     }
     public void CloseLevelSelector()
