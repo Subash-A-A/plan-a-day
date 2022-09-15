@@ -10250,7 +10250,7 @@ MonoBehaviour:
   AppointmentPanel: {fileID: 1559794958}
   JournalInput: {fileID: 6602786930216672032, guid: 400263632ebfc5c4f92dbf3fa14b2b4c, type: 3}
   JournalContent: {fileID: 1104283831}
-  isCat2: 0
+  isLevelCat2: 0
 --- !u!1 &1837379133
 GameObject:
   m_ObjectHideFlags: 0
