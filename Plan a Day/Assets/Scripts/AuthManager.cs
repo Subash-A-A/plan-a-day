@@ -245,10 +245,8 @@ public class AuthManager : MonoBehaviour
 
     private void LoadUserData()
     {
-        string userID = user.UserId.ToString();
         //Get the currently logged in user data\
-
-        FirebaseDatabase.DefaultInstance.RootReference.Child("user").Child(userID).GetValueAsync().ContinueWithOnMainThread(task =>
+        FirebaseDatabase.DefaultInstance.RootReference.Child("user").Child(user.UserId).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {

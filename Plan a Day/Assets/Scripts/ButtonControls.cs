@@ -39,7 +39,8 @@ public class ButtonControls : MonoBehaviour
 
     public void ShowStreetMap()
     {
-        leftPanel.SetActive(false);
+        leftPanel.GetComponent<Animator>().SetTrigger("Close");
+        // leftPanel.SetActive(false);
     }
 
     public void ShowLeftPanel()
@@ -141,7 +142,7 @@ public class ButtonControls : MonoBehaviour
     }
     public void CloseButton(GameObject target)
     {
-        target.SetActive(false);
+        target.GetComponent<Animator>().SetTrigger("Close");
     }
     private void ShowLevelCompletePopup()
     {
