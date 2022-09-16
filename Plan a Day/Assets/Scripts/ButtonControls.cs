@@ -8,6 +8,7 @@ public class ButtonControls : MonoBehaviour
     [SerializeField] Transform journalContent;
     [SerializeField] LevelManager levelManager;
     [SerializeField] GameObject LevelCompletePopup;
+    [SerializeField] GameObject WrongAnswerPopup;
     [SerializeField] Text Timer;
     
     [SerializeField] Transform Buildings;
@@ -21,6 +22,7 @@ public class ButtonControls : MonoBehaviour
         authManager = FindObjectOfType<AuthManager>();
         flagManager = FindObjectOfType<FlagManager>();
         LevelCompletePopup.SetActive(false);
+        WrongAnswerPopup.SetActive(false);
     }
 
     private void Update()
@@ -96,7 +98,9 @@ public class ButtonControls : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Wrong Answer");
+            WrongAnswerPopup.SetActive(true);
+            ClearJournal();
+            MoveFlag("Home");
         }
         if (levelManager.isLevelCat2)
         {
@@ -135,13 +139,9 @@ public class ButtonControls : MonoBehaviour
         
         return arr;
     }
-    public void CloseLevelSelector()
+    public void CloseButton(GameObject target)
     {
-        levelSelector.gameObject.SetActive(false);
-    }
-    public void CloseLevelCompletePopup()
-    {
-        LevelCompletePopup.SetActive(false);
+        target.SetActive(false);
     }
     private void ShowLevelCompletePopup()
     {
