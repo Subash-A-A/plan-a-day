@@ -3,13 +3,15 @@ using UnityEngine;
 public class Points : MonoBehaviour
 {
     public Transform[] points;
+
+    [SerializeField] GameObject Distance;
     [SerializeField] Material pointMat;
-    private LineRenderer lineRenderer;
 
     [SerializeField] Color pointInitialColor;
     [SerializeField] Color lineInitialColor;
     [SerializeField] Color finalColor;
 
+    private LineRenderer lineRenderer;
     private Color currentPointColor;
     private Color currentLineColor;
 
@@ -20,6 +22,7 @@ public class Points : MonoBehaviour
         currentLineColor = finalColor;
         
         lineRenderer.enabled = true;
+        Distance.SetActive(false);
 
         SetPoints();
     }
@@ -48,11 +51,13 @@ public class Points : MonoBehaviour
 
     void DrawLine()
     {
+        Distance.SetActive(true);
         currentPointColor = pointInitialColor;
         currentLineColor = lineInitialColor;
     }
     void ClearLine()
     {
+        Distance.SetActive(false);
         currentPointColor = finalColor;
         currentLineColor = finalColor;
     }

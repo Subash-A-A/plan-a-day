@@ -97,8 +97,9 @@ public class LevelManager : MonoBehaviour
     }
 
     public void LoadJournalInput()
-    {   
-        int currentAnswerLength = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Answers.Length;
+    {
+        string[] answers = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Answers;
+        int currentAnswerLength = answers.Length;
 
         foreach (Transform child in JournalContent)
         {
@@ -106,8 +107,10 @@ public class LevelManager : MonoBehaviour
         }
 
         for (int i = 0; i < currentAnswerLength; i++)
-        {
-            Instantiate(JournalInput, JournalContent);
+        {   
+            // string[] ansSep = answers[i].Split(":");
+            GameObject journalInput = Instantiate(JournalInput, JournalContent);
+            // journalInput.GetComponent<InputField>().placeholder.GetComponent<Text>().text = ansSep[0];
         }
     }
 
@@ -135,6 +138,11 @@ public class LevelManager : MonoBehaviour
         {
             currentRound++;
         }
+        else if(currentLevel == noOfLevels && currentRound == maxRounds)
+        {
+            currentRound = 1;
+            currentLevel = noOfLevels;
+        }
         else
         {
             currentRound = 1;
@@ -157,7 +165,8 @@ public class LevelManager : MonoBehaviour
     public bool CheckAnswer(string[] journalEntries)
     {
         Level level = LevelPanel.GetChild(currentLevel - 1).GetComponent<Level>();
-        
+        string[] answers = level.RoundList[currentRound - 1].Answers;
+
         if(journalEntries.Length != level.RoundList[currentRound - 1].Answers.Length)
         {
             return false;
@@ -166,7 +175,7 @@ public class LevelManager : MonoBehaviour
         {
             for(int i = 0; i < journalEntries.Length; i++)
             {
-                if (journalEntries[i] != level.RoundList[currentRound - 1].Answers[i])
+                if (journalEntries[i] != answers[i])
                 {
                     return false;
                 }

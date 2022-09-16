@@ -1216,6 +1216,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385644719}
   m_CullTransparentMesh: 1
+--- !u!224 &396228275 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+  m_PrefabInstance: {fileID: 4437670784053702760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400695827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,68 +2685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645861784}
   m_CullTransparentMesh: 1
---- !u!1001 &662123506
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2145933185}
-    m_Modifications:
-    - target: {fileID: 4630263350866251360, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_Name
-      value: Points
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
---- !u!4 &662123507 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4630263350866251363, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
-  m_PrefabInstance: {fileID: 662123506}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &667774094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,7 +3946,7 @@ GameObject:
   - component: {fileID: 863183532}
   - component: {fileID: 863183531}
   - component: {fileID: 863183533}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: BuildingName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6018,10 +5961,10 @@ MonoBehaviour:
     - 12
     - 13.5
     Appoinments:
-    - place: Bakery
-      time: 12.15pm - 1.45pm
-    - place: Veggie Stall
-      time: 2.30pm - 2.45pm
+    - place: Office
+      time: 10.30am - 11.00am
+    - place: Hotel
+      time: 12.30pm - 2.30pm
   - Question:
     - 'You are going to start from your home:'
     - You have to go to saloon to pick your friend vinoth 4.45 am 5.00 am.
@@ -6031,10 +5974,10 @@ MonoBehaviour:
     - 19.5
     - 8
     Appoinments:
-    - place: School
-      time: 3.00pm - 3.30 pm
-    - place: Fruit Stall
-      time: 4.00pm - 4.15 pm
+    - place: Saloon
+      time: 4.45am - 5.00am
+    - place: Park
+      time: 5.15am - 5.30am
   isCat2: 1
 --- !u!114 &1123990193
 MonoBehaviour:
@@ -6430,7 +6373,7 @@ GameObject:
   - component: {fileID: 1173383146}
   - component: {fileID: 1173383145}
   - component: {fileID: 1173383144}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: WorldSpaceCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6450,6 +6393,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 863183530}
+  - {fileID: 396228275}
   m_Father: {fileID: 1341614726}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6508,7 +6452,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 1863948614}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -9111,6 +9055,165 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &1578659104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1578659105}
+  - component: {fileID: 1578659109}
+  - component: {fileID: 1578659108}
+  - component: {fileID: 1578659107}
+  - component: {fileID: 1578659106}
+  m_Layer: 5
+  m_Name: Level14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1578659105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578659104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046345016}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1578659106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578659104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84169f05bd11c6e49a10941c9afc0376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoundList:
+  - Question:
+    - 'You are going to start from your home:'
+    - You need to go to bakery by 11.30 am to 12.30 pm for meeting Mr. Arun (LIC
+      agent) for discussing about your LIC policy.
+    - You need to go to Fruit stall by 3.30 pm to 4.00 pm for your friend. Who is
+      admitted in the hospital.
+    - You have to go to hospital to see your friend Mr. Arun. Who is admitted in
+      hospital for Dengue Fever. The Visiting time is from 5.00 to 6.00 pm in the
+      evening.
+    - Your final destination should be on hospital.
+    Answers:
+    - 11
+    - 9.5
+    - 24.5
+    Appoinments:
+    - place: Bakery
+      time: 11.30 am to 12.30 pm
+    - place: Fruit Stall
+      time: 3.30 pm to 4.00 pm
+    - place: Hospital
+      time: 5.00 to 6.00 pm
+  - Question:
+    - 'You are going to start from your home:'
+    - Your father wants you to drop him in the saloon. He wants to cut his hair.
+      You have to drop him by 11.00am to 11.30 am.
+    - The work expo is going to be conducted in park ground. The Event is going to
+      launched by 4.30 pm to 5.30 pm. Your company is taking part in that expo. So
+      you need to attend the Event launching function.
+    - You need to buy Diapers to your niece your sister wanted to buy it for her
+      baby. So you need to go to medical shop by 7.00 pm to 8.00 pm.
+    Answers:
+    - 19.5
+    - 8
+    - 28.5
+    Appoinments:
+    - place: Saloon
+      time: 11.00am to 11.30 am.
+    - place: Park
+      time: 4.30 pm to 5.30 pm.
+    - place: Medical Shop
+      time: 7.00 pm to 8.00 pm.
+  isCat2: 1
+--- !u!114 &1578659107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578659104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &1578659108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578659104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1578659109
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578659104}
+  m_CullTransparentMesh: 1
 --- !u!1 &1595575562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10816,6 +10919,160 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1995328451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995328452}
+  - component: {fileID: 1995328456}
+  - component: {fileID: 1995328455}
+  - component: {fileID: 1995328454}
+  - component: {fileID: 1995328453}
+  m_Layer: 5
+  m_Name: Level13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1995328452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995328451}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046345016}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1995328453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995328451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84169f05bd11c6e49a10941c9afc0376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoundList:
+  - Question:
+    - 'You are going to start from your home:'
+    - You have to go office by 8.00 am to 8.30 am. You have to handover the important
+      file to the colleague.
+    - You have an appointment with the dentist in the hospital by 9.30 to 10.30 am
+    - You have to be in the school by 12.30 to 1.30 for parents teachers meeting.
+    Answers:
+    - 12
+    - 14.5
+    - 21.5
+    Appoinments:
+    - place: Office
+      time: 8.00 am to 8.30 am.
+    - place: Hospital
+      time: 9.30 to 10.30 am.
+    - place: School
+      time: 12.30 to 1.30pm.
+  - Question:
+    - 'You are going to start from your home:'
+    - "You are going to hotel by 8.am to 8.30 am for your breakfast as you haven\u2019t
+      prepared it."
+    - You need to buy Monthly medicines for your mother by 9.00 am to 11.00 am.
+    - Your friend Ms. Nithya wants to meet you. She asked you to come to Bakery by
+      5.00 pm to 6.00 pm near Bakery . She wants you to teach her about the share
+      market investments.
+    Answers:
+    - 18
+    - 19.5
+    - 18.5
+    Appoinments:
+    - place: Hotel
+      time: 8.am to 8.30 am
+    - place: Medical Shop
+      time: 9.00 am to 11.00 am.
+    - place: Bakery
+      time: 5.00 pm to 6.00 pm.
+  isCat2: 1
+--- !u!114 &1995328454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995328451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &1995328455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995328451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1995328456
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995328451}
+  m_CullTransparentMesh: 1
 --- !u!1 &2012587094
 GameObject:
   m_ObjectHideFlags: 0
@@ -10953,6 +11210,8 @@ RectTransform:
   - {fileID: 1700623885}
   - {fileID: 2081867761}
   - {fileID: 1123990191}
+  - {fileID: 1995328452}
+  - {fileID: 1578659105}
   m_Father: {fileID: 891372603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11548,7 +11807,7 @@ Transform:
   - {fileID: 190297194}
   - {fileID: 437279206}
   - {fileID: 876060844}
-  - {fileID: 662123507}
+  - {fileID: 4630263351381048721}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12618,6 +12877,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551892796158890411}
   m_Mesh: {fileID: 1577543689594235073, guid: 2abc415d2049770498e181266e011ce6, type: 3}
+--- !u!1001 &4437670784053702760
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1173383143}
+    m_Modifications:
+    - target: {fileID: 4437670783862146778, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_Name
+      value: Distance
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146778, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437670783862146779, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+--- !u!1 &4437670784053702761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4437670783862146778, guid: c72883b1c896bbd409ce880a3852017d, type: 3}
+  m_PrefabInstance: {fileID: 4437670784053702760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4460457407409015546
 Transform:
   m_ObjectHideFlags: 0
@@ -12726,6 +13091,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8997218395934662476}
   m_Mesh: {fileID: 1376170823217718955, guid: 003c26485dd2eac42be8a197c44e30fb, type: 3}
+--- !u!4 &4630263351381048721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+  m_PrefabInstance: {fileID: 7065006803270960479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &4822945541669977381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14323,6 +14693,67 @@ Transform:
   m_Father: {fileID: 8514639219381600542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7065006803270960479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2145933185}
+    m_Modifications:
+    - target: {fileID: 2470802451221756104, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: Distance
+      value: 
+      objectReference: {fileID: 4437670784053702761}
+    - target: {fileID: 2470802451221756109, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_Name
+      value: Points
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470802451221756110, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25a09474846e9dd42ad1df5152806c17, type: 3}
 --- !u!4 &7157720798547421568
 Transform:
   m_ObjectHideFlags: 0
