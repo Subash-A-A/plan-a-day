@@ -121,9 +121,6 @@ public class AuthManager : MonoBehaviour
                 Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
                 warningLoginText.text = "";
                 confirmLoginText.text = "Logged In";
-                PlayerPrefs.SetString("email", _email);
-                PlayerPrefs.SetString("password", _password);
-                PlayerPrefs.Save();
 
                 LoadUserData();
             }
@@ -246,7 +243,7 @@ public class AuthManager : MonoBehaviour
     private void LoadUserData()
     {
         //Get the currently logged in user data\
-        FirebaseDatabase.DefaultInstance.RootReference.Child("user").Child(user.UserId).GetValueAsync().ContinueWithOnMainThread(task =>
+        DBreference.Child("user").Child(user.UserId).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {
@@ -256,13 +253,16 @@ public class AuthManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("ValuesAssigned?", 0);
                 DataSnapshot snapshot = task.Result;
-                LevelManager.levelsUnlocked = int.Parse(snapshot.Child("levelsUnlocked").GetValue(false).ToString());
-                LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetValue(false).ToString());
-                LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetValue(false).ToString());
+                
+                LevelManager.levelsUnlocked = int.Parse(snapshot.Child("levelsUnlocked").GetRawJsonValue().ToString());
+                LevelManager.currentLevel = int.Parse(snapshot.Child("currentLevel").GetRawJsonValue().ToString());
+                LevelManager.currentRound = int.Parse(snapshot.Child("currentRound").GetRawJsonValue().ToString());
+                
                 isAdmin = bool.Parse(snapshot.Child("isAdmin").GetValue(false).ToString());
                 time = snapshot.Child("timer").GetValue(false).ToString();
 
-                Debug.Log(LevelManager.levelsUnlocked + " " + LevelManager.currentLevel + " " + LevelManager.currentRound);
+                Debug.Log(LevelManager.levelsUnlocked);
+                //Debug.Log(LevelManager.levelsUnlocked + " " + LevelManager.currentLevel + " " + LevelManager.currentRound);
 
                 if (isAdmin == false)
                 {

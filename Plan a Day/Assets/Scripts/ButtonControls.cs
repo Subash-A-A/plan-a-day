@@ -103,10 +103,6 @@ public class ButtonControls : MonoBehaviour
             ClearJournal();
             MoveFlag("Home");
         }
-        if (levelManager.isLevelCat2)
-        {
-            levelManager.LoadJournalInput();
-        }
     }
 
     public void ClearJournal()

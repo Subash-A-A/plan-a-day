@@ -24,16 +24,24 @@ public class LevelManager : MonoBehaviour
     private bool isAssigned = false;
 
     public bool isLevelCat2;
+    private bool isJournalContentEmpty = false;
 
     private void Awake()
     {
         gameObject.SetActive(true);
         StartCoroutine(LoadLevel());
     }
-
+    private void LateUpdate()
+    {
+        if(isLevelCat2 && isJournalContentEmpty)
+        {
+            LoadJournalInput();
+        }
+    }
     private void Update()
     {
         isLevelCat2 = LevelPanel.GetChild(currentLevel - 1).gameObject.GetComponent<Level>().isCat2;
+        isJournalContentEmpty = JournalContent.childCount == 0;
         isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
     }
     public IEnumerator LoadLevel()
