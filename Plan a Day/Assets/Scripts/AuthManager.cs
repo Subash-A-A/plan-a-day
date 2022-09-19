@@ -126,7 +126,8 @@ public class AuthManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Email Not Verified!");
+                warningLoginText.text = "";
+                confirmLoginText.text = "Email Not Verified!";
             }
         }
     }

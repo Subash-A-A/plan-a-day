@@ -8,9 +8,11 @@ public class UserInstance : MonoBehaviour
 
     private AuthManager authManager;
     private AdminManager adminManager;
+    private Image bg;
 
     private void Start()
     {
+        bg = GetComponent<Image>();
         authManager = FindObjectOfType<AuthManager>();
         adminManager = FindObjectOfType<AdminManager>();
     }
@@ -18,7 +20,6 @@ public class UserInstance : MonoBehaviour
     public void UpdateUserTimer()
     {
         authManager.UpdateTimer(uid.text, timerField.text);
-        GameObject popup = adminManager.GetConformationPopup();
-        popup.SetActive(true);
+        StartCoroutine(adminManager.GetConformationPopup(bg));
     }
 }

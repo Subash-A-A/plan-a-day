@@ -5,12 +5,9 @@ using UnityEngine.UI;
 public class AdminManager : MonoBehaviour
 {
     [SerializeField] Transform Users;
-    [SerializeField] GameObject UpdateConformationPopup;
+    [SerializeField] Color SuccessColor;
+    [SerializeField] Color FailedColor;
 
-    private void Start()
-    {
-        UpdateConformationPopup.SetActive(false);
-    }
     public void Filter(InputField key)
     {   
         foreach(Transform user in Users)
@@ -26,13 +23,11 @@ public class AdminManager : MonoBehaviour
         }
     }
 
-    public void CloseConformationPopUp()
+    public IEnumerator GetConformationPopup(Image userInstanceBg)
     {
-        UpdateConformationPopup.SetActive(false);
-    }
-
-    public GameObject GetConformationPopup()
-    {
-        return UpdateConformationPopup;
+        Color original = userInstanceBg.color;
+        userInstanceBg.color = SuccessColor;
+        yield return new WaitForSeconds(2);
+        userInstanceBg.color = original;
     }
 }
