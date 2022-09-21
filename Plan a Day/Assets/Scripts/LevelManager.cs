@@ -43,6 +43,8 @@ public class LevelManager : MonoBehaviour
         isLevelCat2 = LevelPanel.GetChild(currentLevel - 1).gameObject.GetComponent<Level>().isCat2;
         isJournalContentEmpty = JournalContent.childCount == 0;
         isAssigned = PlayerPrefs.GetInt("ValuesAssigned?") == 1;
+
+        AppoinmentJournalVisibility();
     }
     public IEnumerator LoadLevel()
     {
@@ -54,6 +56,32 @@ public class LevelManager : MonoBehaviour
         {
             LoadJournalInput();
         }
+    }
+    private void AppoinmentJournalVisibility()
+    {   
+        foreach(Transform appoinment in AppointmentPanel)
+        {
+            if (!InJournal(appoinment.name))
+            {
+                appoinment.gameObject.SetActive(true);
+            }
+            else
+            {
+                appoinment.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private bool InJournal(string name)
+    {
+        foreach(Transform child in JournalContent)
+        {
+            if(child.name == name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public void UpdateLevel()
     {   
@@ -94,6 +122,7 @@ public class LevelManager : MonoBehaviour
             GameObject appointment = Instantiate(AppointmentPrefab, AppointmentPanel);
             appointment.transform.GetChild(0).GetComponent<Text>().text = currentAppoinments[i].place;
             appointment.transform.GetChild(1).GetComponent<Text>().text = currentAppoinments[i].time;
+            appointment.name = currentAppoinments[i].place;
         }
     }
 
@@ -122,6 +151,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public GameObject GetAppoinmentPanel()
+    {
+        return AppointmentPanel.gameObject;
+    }
     public GameObject GetQuestionPrefab()
     {
         return QuestionPrefab;
@@ -138,7 +171,6 @@ public class LevelManager : MonoBehaviour
     {
         return LevelPanel.gameObject;
     }
-
     public void GoToNextRoundLevel()
     {
         LevelPanel.gameObject.SetActive(true);

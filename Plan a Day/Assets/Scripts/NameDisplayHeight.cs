@@ -21,6 +21,7 @@ public class NameDisplayHeight : MonoBehaviour
             GameObject journalEntry = Instantiate(content.GetJournalEntry(), content.transform);
             Text text = journalEntry.GetComponent<Text>();
             text.text = transform.name;
+            journalEntry.name = transform.name;
 
             // Flag position is always at child0
             Transform flagPosition = transform.GetChild(0);
