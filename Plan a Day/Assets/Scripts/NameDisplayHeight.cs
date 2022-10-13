@@ -16,7 +16,7 @@ public class NameDisplayHeight : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!manager.GetLevelPanel().activeSelf && !manager.GetLevelSelector().activeSelf)
+        if (!manager.GetLevelPanel().activeSelf && !manager.GetLevelSelector().activeSelf && !manager.isLevelCat2)
         {
             GameObject journalEntry = Instantiate(content.GetJournalEntry(), content.transform);
             Text text = journalEntry.GetComponent<Text>();

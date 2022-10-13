@@ -7,9 +7,11 @@ public class FlagManager : MonoBehaviour
     
     private Vector3 flagTransformPosition;
     private Quaternion flagTransformRotation;
+    private LevelManager levelManager;
 
     private void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         flagTransformPosition = HomeTransform.GetChild(0).position;
         FlagTransform.position = HomeTransform.GetChild(0).position;
     }
@@ -17,6 +19,7 @@ public class FlagManager : MonoBehaviour
     private void Update()
     {
         FlagTransformLerper();
+        FlagTransform.gameObject.SetActive(!levelManager.isLevelCat2);
     }
 
     public Transform GetFlagTransform()
