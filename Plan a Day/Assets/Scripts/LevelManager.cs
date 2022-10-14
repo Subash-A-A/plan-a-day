@@ -134,8 +134,12 @@ public class LevelManager : MonoBehaviour
     }
 
     public void LoadJournalInput()
-    {
+    {   
         string[] answers = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Answers;
+        string[] paths = currentLevelGameObject.GetComponent<JournalInputData>().roundFromTos[currentRound - 1].fromToPaths;
+
+        
+
         int currentAnswerLength = answers.Length;
 
         foreach (Transform child in JournalContent)
@@ -145,12 +149,14 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < currentAnswerLength; i++)
         {   
-            // string[] ansSep = answers[i].Split(":");
             GameObject journalInput = Instantiate(JournalInput, JournalContent);
-            // journalInput.GetComponent<InputField>().placeholder.GetComponent<Text>().text = ansSep[0];
+            journalInput.GetComponent<FromToData>().fromTo = paths[i];
         }
     }
-
+    public Transform GetJournalContent()
+    {
+        return JournalContent;
+    }
     public GameObject GetAppoinmentPanel()
     {
         return AppointmentPanel.gameObject;

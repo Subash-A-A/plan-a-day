@@ -5337,7 +5337,7 @@ MonoBehaviour:
   page: {fileID: 951544472}
   UserInstancePrefab: {fileID: 743638356042533169, guid: b0043fbd3d41a364ab9dc2a934e7a26c, type: 3}
   usersContent: {fileID: 935721464}
-  DebuggingMode: 0
+  DebuggingMode: 1
 --- !u!4 &1786645441
 Transform:
   m_ObjectHideFlags: 0

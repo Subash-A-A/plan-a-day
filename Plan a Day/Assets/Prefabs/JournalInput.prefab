@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4692547861705810068}
   - component: {fileID: 6530410916122210268}
   - component: {fileID: 6328412007986801055}
+  - component: {fileID: 2308310528624902537}
   m_Layer: 5
   m_Name: JournalInput
   m_TagString: Untagged
@@ -248,6 +249,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2308310528624902537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602786930216672032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a720fbb6961369240b0a55324b5e3e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9174063451984605411
 GameObject:
   m_ObjectHideFlags: 0
