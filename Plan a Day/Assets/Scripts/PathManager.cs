@@ -6,6 +6,7 @@ public class PathManager : MonoBehaviour
     public Color normal;
     public Color highlighted;
     [SerializeField] LayerMask pathMask;
+    [SerializeField] LayerMask overlayMask;
     
     private LevelManager levelManager;
     private Transform journalContent;
@@ -18,12 +19,19 @@ public class PathManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (!levelManager.isLevelCat2)
+        {
+            HidePaths();
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        if(Physics.SphereCast(ray, 0.5f, out RaycastHit hitInfo, 999f, pathMask))
+
+        if(Physics.SphereCast(ray, 1f, out RaycastHit hitInfo, 999f, pathMask))
         {
             HighlightPath(hitInfo.transform.parent);
         }
+
         else
         {
             foreach(Transform pathTransform in transform)
@@ -32,23 +40,13 @@ public class PathManager : MonoBehaviour
                 path.highlighted = false;
             }
         }
-
-        ShowPath();
+        
     }
 
     private void HighlightPath(Transform pathTransform)
     {
         Path pathInfo = pathTransform.GetComponent<Path>();
         pathInfo.highlighted = true;
-    }
-
-    private void ShowPath()
-    {
-        foreach(Transform pathTransform in transform)
-        {
-            Path path = pathTransform.GetComponent<Path>();
-            path.ShowPath();
-        }
     }
 
     public void EnterPathDistanceJournal(string fromTo, float length)
@@ -59,6 +57,31 @@ public class PathManager : MonoBehaviour
             {
                 journal.GetComponent<InputField>().text = length + "";
             }
+        }
+    }
+
+    public void ShowSelectedPaths(string fromTo)
+    {   
+        foreach (Transform pathTransform in transform)
+        {
+            Path path = pathTransform.GetComponent<Path>();
+
+            if (path.fromTo.Equals(fromTo))
+            {
+                path.ShowPath();
+            }
+            else
+            {
+                pathTransform.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void HidePaths()
+    {
+        foreach (Transform pathTransform in transform)
+        {
+            pathTransform.gameObject.SetActive(false);
         }
     }
 }

@@ -16,11 +16,12 @@ public class ButtonControls : MonoBehaviour
 
     private FlagManager flagManager;
     private AuthManager authManager;
-
+    private PathManager pathManager;
     private void Start()
     {
         authManager = FindObjectOfType<AuthManager>();
         flagManager = FindObjectOfType<FlagManager>();
+        pathManager = FindObjectOfType<PathManager>();
         LevelCompletePopup.SetActive(false);
         WrongAnswerPopup.SetActive(false);
     }
@@ -40,7 +41,6 @@ public class ButtonControls : MonoBehaviour
     public void ShowStreetMap()
     {
         leftPanel.GetComponent<Animator>().SetTrigger("Close");
-        // leftPanel.SetActive(false);
     }
 
     public void ShowLeftPanel()
@@ -92,6 +92,7 @@ public class ButtonControls : MonoBehaviour
         {
             levelManager.GoToNextRoundLevel();
             levelSelector.UpdateLevel();
+            pathManager.HidePaths();
             ClearJournal();
             MoveFlag("Home");
             ShowLevelCompletePopup();

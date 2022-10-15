@@ -42,7 +42,7 @@ public class Path : MonoBehaviour
                     SpriteRenderer renderer = square.GetComponent<SpriteRenderer>();
                     renderer.color = pathManager.highlighted;
                 }
-                yPos = 0.5f;
+                yPos = 1;
             }
             else
             {

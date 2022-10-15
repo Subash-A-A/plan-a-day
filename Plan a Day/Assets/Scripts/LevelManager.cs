@@ -16,7 +16,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform LevelSelector;
     [SerializeField] Transform AppointmentPanel;
     [SerializeField] GameObject JournalInput;
+    [SerializeField] GameObject PathButton;
     [SerializeField] Transform JournalContent;
+    [SerializeField] Transform PathButtonContent;
+    [SerializeField] GameObject PathSelectPanel;
 
     private int maxRounds;
     private Appoinment[] currentAppoinments;
@@ -37,6 +40,8 @@ public class LevelManager : MonoBehaviour
         {
             LoadJournalInput();
         }
+
+        PathSelectPanel.SetActive(isLevelCat2);
     }
     private void Update()
     {
@@ -138,8 +143,6 @@ public class LevelManager : MonoBehaviour
         string[] answers = currentLevelGameObject.GetComponent<Level>().RoundList[currentRound - 1].Answers;
         string[] paths = currentLevelGameObject.GetComponent<JournalInputData>().roundFromTos[currentRound - 1].fromToPaths;
 
-        
-
         int currentAnswerLength = answers.Length;
 
         foreach (Transform child in JournalContent)
@@ -147,10 +150,18 @@ public class LevelManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        foreach(Transform child in PathButtonContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < currentAnswerLength; i++)
         {   
             GameObject journalInput = Instantiate(JournalInput, JournalContent);
+            GameObject pathButton = Instantiate(PathButton, PathButtonContent);
+            
             journalInput.GetComponent<FromToData>().fromTo = paths[i];
+            pathButton.GetComponentInChildren<Text>().text = paths[i];
         }
     }
     public Transform GetJournalContent()
